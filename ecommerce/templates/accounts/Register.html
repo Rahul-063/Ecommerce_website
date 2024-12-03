@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+</head>
+<body>
+    <h1>Registration</h1>
+    {% if messages%}
+    {% for message in messages%}
+    <h1 class="badge badge-light" style="color:red;">{{message}}</h1>
+    {% endfor %}
+    {% endif %}
+    <form method="post">
+    {% csrf_token %}  
+        <div class="form-group">
+        <label for="username">username</label>
+        <input type="text" name="username" id="username"><br>  
+        </div>
+        <div class="form-group">
+        <label for="email">email</label>
+        <input type="email" name="email" id="email"><br>
+        </div>
+        <div class="from-group mb-4">
+        <label for="password">passsword</label>
+        <input type="password" name="password" id="password" ><br>
+        </div>
+        <div class="from-group">
+        <label for="confirm_password">confirm_password</label>
+        <input type="password" name="confirm_password" id="confirm_password"><br>
+        </div>   
+        <div class="form-group">
+        <label for="phoneNumber">phoneNumber</label>
+        <input type="text" name="phone_field" id="phone_field"><br>
+        </div>
+        <button type="submit">Register</button>
+    </form>
+    <p class="login-wrapper-footer-text">Already have account?<a href="{% url 'user_login' %}">Login Here</a></p>
+</body>
+</html>
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout Address</title>
+</head>
+<body>
+    {% if payment_allow == 'allow'%}
+    <a href="{% url 'payment'%}" class="btn btn-block login-btn">Go for payment</a>
+    {% else%}
+    <h1 class='login-btn'>checkout Address</h1>
+    {% if messages %}
+    {% for message in messages %}
+    <h1 class="badge badge-light" style="color:red;">{{message}}</h1>
+    {% endfor %}
+    {% endif %}
+    <form method="post">
+    {% csrf_token %}  
+       {{form}}
+        <button type="submit">checkout Address</button>
+    </form>
+    {% endif %}
+ 
+    
+</body>
+</html>
